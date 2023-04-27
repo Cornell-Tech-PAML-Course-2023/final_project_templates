@@ -1,14 +1,20 @@
 import streamlit as st        
-from PIL import Image
 from st_clickable_images import clickable_images
 import matplotlib.pyplot as plt
 import numpy as np
+
+# This final project proposal template provides an example of product recommendation application for Cornell Tech Shoe Boutique, a family friendly online shoe store. 
+# The layout has tabs (instead of sidebar). The tabs include 
+# - Cornell Tech Show Boutique (Home page):
+# - Women's Shoes, Men's Shoes: Shop for women's shoes, select a recommendation system that's right for you which updates the results (result updates not fully implemented)
+# - Recommendation Analysis: Shoes classification performance on dummy data including precision, recall, TP, TN, FP, and FN
+
 
 def apply_threshold(probabilities, threshold):
     # +1 if >= threshold and -1 otherwise.
     return np.array([1 if p[1] >= threshold else 0 for p in probabilities])
     
-tab1, tab2, tab3, tab4 = st.tabs(["Cornell Tech Shoe Boutique", "Women", "Men", "Recommendation Analysis"])
+tab1, tab2, tab3, tab4 = st.tabs(["Cornell Tech Shoe Boutique", "Women's Shoes", "Men's Shoes", "Recommendation Analysis"])
 
 with tab1:
     st.header("Cornell Tech Shoe Boutique") 
@@ -34,7 +40,7 @@ with tab1:
 
     st.markdown('### What are you shopping for today?')
 
-    # Add intro text
+    st.write('We are a friends and family online shoe boutique affiliated with Cornell Tech in New York City. We offer name brand shoes at low prices. Using machine learning recommendation systems, we find the right shoe for you! Get prepared with warm-weather styles that are back and better than ever.')
 
 
     # Display Cornell Tech Image
@@ -60,7 +66,7 @@ with tab2:
         img_style={"margin": "5px", "height": "200px"},
     )
 
-    st.markdown(f"Category {women_categories[women_category_select]} Selected" if women_category_select > -1 else "No Category Selected")
+    st.markdown(f"Category {women_categories[women_category_select]} Selected" if women_category_select > -1 else "")
 
     st.markdown('### Select a Recommendation System')
 
@@ -128,7 +134,7 @@ with tab2:
             st.write(scandals_list[3])
             st.write(f"${scandals_prices[3]}")
 
-        st.markdown(f"Scandal {scandals_list[scandal_select]} Selected" if scandal_select > -1 else "No Scandal Selected")
+        st.markdown(f"Scandal {scandals_list[scandal_select]} Selected" if scandal_select > -1 else "")
 
     elif(women_category_select==1):
         flats_list=['https://slimages.macysassets.com/is/image/MCY/products/3/optimized/18380753_fpx.tif?op_sharpen=1&wid=500&hei=611&fit=fit,1&fmt=webp',
@@ -172,7 +178,7 @@ with tab2:
             st.write(flats_list[3])
             st.write(f"${flats_prices[3]}")
 
-        st.markdown(f"Flat {flats_list[flats_select]} Selected" if flats_select > -1 else "No Flat Selected")
+        st.markdown(f"Flat {flats_list[flats_select]} Selected" if flats_select > -1 else "")
         # 2 - Heels
         # 3 - Sneakers
     elif(women_category_select==2):
@@ -218,7 +224,7 @@ with tab2:
             st.write(scandals_list[3])
             st.write(f"${scandals_prices[3]}")
 
-        st.markdown(f"Scandal {scandals_list[scandal_select]} Selected" if scandal_select > -1 else "No Scandal Selected")
+        st.markdown(f"Scandal {scandals_list[scandal_select]} Selected" if scandal_select > -1 else "")
 
     elif(women_category_select==3):
         sneaker_urls=['https://slimages.macysassets.com/is/image/MCY/products/6/optimized/23675776_fpx.tif?op_sharpen=1&wid=500&hei=611&fit=fit,1&fmt=webp',
@@ -262,7 +268,7 @@ with tab2:
             st.write(sneaker_list[3])
             st.write(f"${sneaker_prices[3]}")
 
-        st.markdown(f"Sneaker {sneaker_list[sneaker_select]} Selected" if sneaker_select > -1 else "No Sneaker Selected")
+        st.markdown(f"Sneaker {sneaker_list[sneaker_select]} Selected" if sneaker_select > -1 else "")
 
 with tab3:
     st.header("Men's Shoes")
@@ -293,7 +299,7 @@ with tab3:
     with(men_col4):
         st.write(men_categories[3])
 
-    st.markdown(f"Category {men_categories[men_category_select]} Selected" if men_category_select > -1 else "No Category Selected")
+    st.markdown(f"Category {men_categories[men_category_select]} Selected" if men_category_select > -1 else "")
 
     st.markdown('### Select a Recommendation System')
 
@@ -361,7 +367,7 @@ with tab3:
             st.write(althetic_list[3])
             st.write(f"${althetic_prices[3]}")
 
-        st.markdown(f"Scandal {althetic_list[althetic_select]} Selected" if althetic_select > -1 else "No Scandal Selected")
+        st.markdown(f"Scandal {althetic_list[althetic_select]} Selected" if althetic_select > -1 else "")
 
     elif(men_category_select==1):
         casual_urls=['https://slimages.macysassets.com/is/image/MCY/products/5/optimized/18038575_fpx.tif?op_sharpen=1&wid=500&hei=611&fit=fit,1&fmt=webp',
@@ -405,7 +411,7 @@ with tab3:
             st.write(casual_list[3])
             st.write(f"${casual_prices[3]}")
 
-        st.markdown(f"Flat {casual_list[casual_select]} Selected" if casual_select > -1 else "No Flat Selected")
+        st.markdown(f"Flat {casual_list[casual_select]} Selected" if casual_select > -1 else "")
     elif(men_category_select==2): 
         # 2 - Dress Shoes
         dress_shoe_urls=['https://slimages.macysassets.com/is/image/MCY/products/3/optimized/9199563_fpx.tif?op_sharpen=1&wid=500&hei=611&fit=fit,1&fmt=webp',
@@ -449,7 +455,7 @@ with tab3:
             st.write(dress_shoe_list[3])
             st.write(f"${dress_shoe_prices[3]}")
 
-        st.markdown(f"Scandal {dress_shoe_list[dress_shoe_select]} Selected" if dress_shoe_select > -1 else "No Scandal Selected")
+        st.markdown(f"Scandal {dress_shoe_list[dress_shoe_select]} Selected" if dress_shoe_select > -1 else "")
 
     elif(men_category_select==3):
         # 3 - Loafers
@@ -494,7 +500,7 @@ with tab3:
             st.write(loafers_list[3])
             st.write(f"${loafers_prices[3]}")
 
-        st.markdown(f"Sneaker {loafers_list[loafers_select]} Selected" if loafers_select > -1 else "No Sneaker Selected")
+        st.markdown(f"Sneaker {loafers_list[loafers_select]} Selected" if loafers_select > -1 else "")
 
 with tab4:
     st.header("Recommendation System Analysis")
@@ -525,15 +531,15 @@ with tab4:
 
     st.write('### Classification Metrics')
 
-    # Add intro text
+    st.write('At Cornell Tech Boutique, we are transparent about the machine learning model performance of the recommendation systems used on our website. We have provided results including evaluation metrics: precision, recall, true positives, true negatives, false positives, and false negatives. We share the results on a test dataset.')
 
     true_neg, false_pos, false_neg, true_pos = conf_matrix.ravel()
 
     precision = true_pos/(true_pos+false_pos)
     recall = true_pos / (true_pos + false_neg)
 
-    st.write("Precision on test data: %s" % precision)
-    st.write("Recall on test data: %s" % recall)
+    st.write("Precision: %s" % precision)
+    st.write("Recall: %s" % recall)
 
     st.write('There are {} false positives'.format(false_pos))
     st.write('There are {} false negatives'.format(false_neg))
