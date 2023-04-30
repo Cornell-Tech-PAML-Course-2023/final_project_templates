@@ -5,4 +5,4 @@ This repository contains three example Streamlit application templates intended 
 There are three templates provided including:
 * Machine Learning Pipeline Example
 * Cornell Tech Show Boutique Example
-* ???
+* Cornell Tech Restaurant Finder Example
