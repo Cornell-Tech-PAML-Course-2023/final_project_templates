@@ -1,12 +1,12 @@
-# Practical Applications in Machine Learning 
+# Practical Applications in Machine Learning Final Project Template
 
 # Cornell Tech Boutique
 
-This final project proposal template provides an example of product recommendation application for Cornell Tech Shoe Boutique, a family friendly online shoe store. 
+This final project proposal template provides an example of restarant recommendation application to helps visitors find good restaruants in NYC. 
+The layout has one-page (instead of sidebar/tabs). 
 
-The layout has tabs (instead of sidebar). The tabs include 
-- Cornell Tech Show Boutique (Home page):
-- Women's Shoes, Men's Shoes: Shop for women's shoes, select a recommendation system that's right for you which updates the results (result updates not fully implemented)
+The websites sections include 
+- Explore NYC Restureants:
 - Recommendation Analysis: Shoes classification performance on dummy data including precision, recall, TP, TN, FP, and FN
 
-Happy Shopping!
+Happy searching for your foody experience!
