@@ -9,4 +9,9 @@ The websites sections include
 - Explore NYC Restureants:
 - Recommendation Analysis: Shoes classification performance on dummy data including precision, recall, TP, TN, FP, and FN
 
+Run the application:
+```
+streamlit run show_app.py
+```
+
 Happy searching for your foody experience!
