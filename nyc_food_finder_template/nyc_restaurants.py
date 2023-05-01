@@ -10,10 +10,10 @@ from sklearn.pipeline import make_pipeline
 from sklearn.metrics import confusion_matrix
 import pandas as pd
 from pandas.api.types import (
-    is_categorical_dtype,
-    is_datetime64_any_dtype,
-    is_numeric_dtype,
-    is_object_dtype,
+   is_categorical_dtype,
+   is_datetime64_any_dtype,
+   is_numeric_dtype,
+   is_object_dtype,
 )
 
 # This final project proposal template provides an example of restarant recommendation application to helps visitors find good restaruants in NYC. 
@@ -22,7 +22,7 @@ from pandas.api.types import (
 # - Explore NYC Restureants:
 # - Recommendation Analysis: Shoes classification performance on dummy data including precision, recall, TP, TN, FP, and FN
 
-DATASET_FILENAME = 'food_order_updated.csv'
+DATASET_FILENAME = 'food_order_updated1.csv'
 
 df = pd.read_csv(DATASET_FILENAME)
 df = df.dropna()
@@ -100,6 +100,21 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                if user_text_input:
                   df = df[df[column].str.contains(user_text_input)]
    return df
+
+def display_restaurant_info(df, top_n=5):
+   if(top_n >= len(df)):
+      top_n = len(df)
+   
+   for i in range(top_n):
+      name = df['restaurant_name'].iloc[i]
+      cuisine_type = df['cuisine_type'].iloc[i]
+      address = df['address'].iloc[i]
+      rating = df['rating'].iloc[i]
+
+      st.markdown('### {}'.format(name))
+      st.write('* Cuisine Type: {}'.format(cuisine_type))
+      st.write('* Address: {}'.format(address))
+      st.write('* Rating: {}'.format(rating))
 
 def apply_threshold(probabilities, threshold):
    # +1 if >= threshold and -1 otherwise.
@@ -191,7 +206,19 @@ with tab1:
    st.markdown('### Your Recommendations')
 
    st.write('Cuisine selection:')
-   st.dataframe(df)
+   #st.dataframe(df)
+
+   display_restaurant_info(df, top_n=8)
+
+   #name = df['restaurant_name'][0]
+   #cuisine_type = df['cuisine_type'][0]
+   #address = df['address'][0]
+   #rating = df['rating'][0]
+
+   #st.write('Name: {}'.format(name))
+   #st.write('* Cuisine Type: {}'.format(cuisine_type))
+   #st.write('* Address: {}'.format(address))
+   #st.write('* Rating: {}'.format(rating))
 
 with tab2:
    header_col_rec_1, header_col_rec_2 = st.columns(2)
@@ -272,7 +299,7 @@ with tab2:
    fig, ax = plt.subplots(figsize=(7.5, 7.5))
    plt.rcParams['figure.figsize'] = 7, 5
    plt.locator_params(axis = 'x', nbins = 5)
-   plt.plot(recall_all, precision_all, 'b-', linewidth=4.0, color = '#B0017F')
+   plt.plot(recall_all, precision_all, 'b', linewidth=4.0, color = '#B0017F')
    plt.title('Precision recall curve (all)')
    plt.ylabel('Precision')
    plt.xlabel('Recall')

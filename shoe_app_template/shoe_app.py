@@ -586,7 +586,7 @@ with tab4:
     fig, ax = plt.subplots(figsize=(7.5, 7.5))
     plt.rcParams['figure.figsize'] = 7, 5
     plt.locator_params(axis = 'x', nbins = 5)
-    plt.plot(recall_all, precision_all, 'b-', linewidth=4.0, color = '#B0017F')
+    plt.plot(recall_all, precision_all, 'b', linewidth=4.0, color = '#B0017F')
     plt.title('Precision recall curve (all)')
     plt.ylabel('Precision')
     plt.xlabel('Recall')
