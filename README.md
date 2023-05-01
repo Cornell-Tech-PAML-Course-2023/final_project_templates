@@ -6,3 +6,4 @@ There are three templates provided including:
 * Machine Learning Pipeline Example
 * Cornell Tech Show Boutique Example
 * Cornell Tech Restaurant Finder Example
+* NYC Traffic Accidents
